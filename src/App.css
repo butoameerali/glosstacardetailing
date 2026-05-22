@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+/* =======================================
+   BACK TO TOP FIXED FLOATING BUTTON
+   ======================================= */
+.back-to-top-arrow {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background-color: #212529 !important; /* Dark color */
+    color: #ffffff !important; /* White arrow */
+    border: 2px solid #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    z-index: 9999 !important; /* Sab se upar rakhne ke liye */
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+.back-to-top-arrow:hover {
+    background-color: #000000 !important;
+    transform: translateY(-5px) !important; /* Hover karne par thora upar jump karega */
+}
+
+/* Mobile screens ke liye thora chota kar diya */
+@media (max-width: 768px) {
+    .back-to-top-arrow {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 18px !important;
+    }
+}

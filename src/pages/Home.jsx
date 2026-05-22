@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // SEO KE LIYE ADD KIYA HAI
 
 function Home() {
   // --- Price Calculator State ---
@@ -76,19 +77,25 @@ function Home() {
 
   return (
     <main>
+      {/* LOCAL SEO TAGS SPECIFIC FOR HOME PAGE */}
+      <Helmet>
+        <title>Glossta Car Detailing | Mobile Auto Detailing in Ontario</title>
+        <meta name="description" content="Looking for the best mobile car detailing in Ontario, Canada? Glossta offers premium interior deep cleaning, ceramic coating, and exterior wash right at your doorstep." />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="hero-section position-relative d-flex align-items-center" style={{ minHeight: 'calc(100vh - 120px)', overflow: 'hidden' }}>
         <div className="hero-bg-wrapper position-absolute w-100 h-100 start-0 top-0 z-0 pointer-events-none">
-          <img src="/cleanCar.png" alt="Clean Car" className="car-bg clean-car position-absolute w-100 h-100 object-fit-cover" style={{ zIndex: 1 }} />
-          <img src="/dirtyCar.png" alt="Dirty Car" ref={dirtyCarRef} className="car-bg dirty-car position-absolute w-100 h-100 object-fit-cover" style={{ zIndex: 2 }} />
+          <img src="/cleanCar.png" alt="Clean Car Detailing Ontario" className="car-bg clean-car position-absolute w-100 h-100 object-fit-cover" style={{ zIndex: 1 }} />
+          <img src="/dirtyCar.png" alt="Dirty Car Wash Service" ref={dirtyCarRef} className="car-bg dirty-car position-absolute w-100 h-100 object-fit-cover" style={{ zIndex: 2 }} />
           <div className="brush-wrapper position-absolute" ref={brushRef} style={{ width: '150px', zIndex: 5, opacity: 0 }}>
             <img src="/brush.png" alt="Detailing Brush" className="w-100 h-auto" />
           </div>
         </div>
 
         <div className="container position-relative z-3">
-          <div className="hero-content" style={{ maxWidth: '600px' }}>
-            <h2 className="display-4 fw-bolder mb-4 text-dark shadow-sm-text">ELEVATE YOUR RIDE'S<br />BRILLIANCE WITH<br />GLOSSTA CAR DETAILING</h2>
+          <div className="hero-content" style={{ maxWidth: '650px' }}>
+            <h1 className="display-4 fw-bolder mb-4 text-dark shadow-sm-text">ELEVATE YOUR RIDE'S<br />BRILLIANCE WITH<br />GLOSSTA DETAILING ONTARIO</h1>
             <div className="d-flex flex-column flex-md-row gap-3">
               <a href="#quote-section" className="btn btn-dark btn-lg fw-bold px-4">GET FREE QUOTE <i className="fa-solid fa-arrow-down ms-2"></i></a>
               <a href="https://wa.me/16727123185" target="_blank" rel="noreferrer" className="btn btn-secondary btn-lg fw-bold px-4"><i className="fa-brands fa-whatsapp ms-2"></i> CALL / CHAT NOW</a>
@@ -101,9 +108,9 @@ function Home() {
       <section className="py-5 bg-light">
         <div className="container py-5">
           <div className="text-center mb-5 mx-auto" style={{ maxWidth: '700px' }}>
-            <h2 className="fw-bolder">OUR PREMIUM SERVICES</h2>
+            <h2 className="fw-bolder">PREMIUM MOBILE DETAILING IN ONTARIO</h2>
             <div className="heading-line bg-dark mx-auto my-3" style={{ width: '60px', height: '4px' }}></div>
-            <p className="text-muted">Experience the ultimate care for your vehicle with our professional detailing packages.</p>
+            <p className="text-muted">Experience the ultimate care for your vehicle with our professional detailing packages, delivered right to your location anywhere in Ontario.</p>
           </div>
 
           <div className="row g-4">
@@ -133,9 +140,9 @@ function Home() {
       <section className="py-5 bg-secondary-subtle" id="quote-section">
         <div className="container py-5">
           <div className="text-center mb-5 mx-auto" style={{ maxWidth: '700px' }}>
-            <h2 className="fw-bolder">ESTIMATE YOUR COST</h2>
+            <h2 className="fw-bolder">ESTIMATE YOUR DETALING COST</h2>
             <div className="heading-line bg-dark mx-auto my-3" style={{ width: '60px', height: '4px' }}></div>
-            <p className="text-muted">Select your vehicle size and the services you need to get an instant estimated price.</p>
+            <p className="text-muted">Select your vehicle size and the services you need to get an instant estimated price for our Ontario mobile service.</p>
           </div>
 
           <div className="row g-4 bg-white p-4 p-md-5 rounded shadow-sm">

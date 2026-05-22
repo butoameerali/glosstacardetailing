@@ -4,10 +4,9 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Terms from './pages/Terms';       // <-- Yahan add kiya hai
-import Privacy from './pages/Privacy';   // <-- Yahan add kiya hai
+import Terms from './pages/Terms';       
+import Privacy from './pages/Privacy';   
 
-// --- SHARED MODAL SYSTEM ---
 function AppModal({ isOpen, onClose, title, children }) {
   useEffect(() => {
     const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
@@ -35,6 +34,23 @@ function AppModal({ isOpen, onClose, title, children }) {
 function App() {
   const [activeModal, setActiveModal] = useState('none');
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScrollVisibility = () => {
+      if (window.scrollY > 300) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScrollVisibility);
+    return () => window.removeEventListener('scroll', handleScrollVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <Router>
@@ -50,7 +66,7 @@ function App() {
           </div>
         </div>
 
-        {/* Responsive Header / Navbar */}
+        {/* Header / Navbar */}
         <header className="bg-theme-light py-3 border-bottom sticky-top shadow-sm z-3">
           <div className="container d-flex justify-content-between align-items-center flex-wrap">
             <div>
@@ -73,10 +89,9 @@ function App() {
               </ul>
             </nav>
           </div>
-{/* Is line ke baad... */}
         </header>
 
-        {/* --- YAHAN SE FLOATING SOCIAL BAR ADD KAREIN --- */}
+        {/* Floating Social Media Side Bar */}
         <div className="social-footer">
           <a href="https://wa.me/16727123185" target="_blank" rel="noreferrer" className="social-item">
             <i className="fa-brands fa-whatsapp"></i>
@@ -88,12 +103,8 @@ function App() {
             <i className="fa-brands fa-instagram"></i>
           </a>
         </div>
-        {/* --- YAHAN TAK --- */}
 
-
-
-
-        {/* Render Connected Routes */}
+        {/* Render App Routes */}
         <div className="flex-grow-1">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -103,7 +114,7 @@ function App() {
           </Routes>
         </div>
 
-        {/* Main Footer Matrix */}
+        {/* Footer */}
         <footer className="bg-dark text-light pt-5 mt-auto">
           <div className="container pb-5">
             <div className="row gy-4">
@@ -124,7 +135,8 @@ function App() {
               <div className="col-md-12 col-lg-4 text-start">
                 <h3 className="h5 text-white fw-bold mb-4 border-bottom border-secondary pb-2 d-inline-block">Contact Us</h3>
                 <ul className="list-unstyled small d-flex flex-column gap-3" style={{ lineHeight: '1.6' }}>
-                  <li className="d-flex gap-3"><i className="fa-solid fa-location-dot mt-1 text-secondary"></i> 123 Detailing Studio St, Auto City</li>
+                  {/* LOCATION UPDATE: Fixed to Ontario, Canada Mobile Area */}
+                  <li className="d-flex gap-3"><i className="fa-solid fa-location-dot mt-1 text-secondary"></i> Ontario, Canada (Mobile Service)</li>
                   <li className="d-flex gap-3"><i className="fa-solid fa-phone mt-1 text-secondary"></i> <a href="tel:16727123185" className="text-secondary text-decoration-none">+1 (672) 712-3185</a></li>
                   <li className="d-flex gap-3"><i className="fa-solid fa-envelope mt-1 text-secondary"></i> <a href="mailto:butoameerali@gmail.com" className="text-secondary text-decoration-none">butoameerali@gmail.com</a></li>
                   <li className="d-flex gap-3"><i className="fa-solid fa-clock mt-1 text-secondary"></i> Mon - Sat: 9:00 AM - 6:00 PM</li>
@@ -143,11 +155,40 @@ function App() {
           </div>
         </footer>
 
-        {/* Yahan par ab original files Modal ke andar render ho rahi hain */}
+        {/* Dynamic Back To Top Button */}
+        {/* Dynamic Back To Top Button - FIXED STYLE */}
+        {showBackToTop && (
+          <button 
+            onClick={scrollToTop} 
+            className="btn shadow" 
+            aria-label="Back to top"
+            style={{
+              position: 'fixed',
+              bottom: '30px',
+              right: '30px',
+              width: '50px',
+              height: '50px',
+              borderRadius: '50%',
+              backgroundColor: '#212529',
+              color: '#ffffff',
+              border: '2px solid #ffffff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '22px',
+              zIndex: 9999,
+              cursor: 'pointer'
+            }}
+          >
+            <i className="fa-solid fa-arrow-up"></i>
+          </button>
+        )}
+
+
+        {/* Modals Popup Context containers */}
         <AppModal isOpen={activeModal === 'privacy'} onClose={() => setActiveModal('none')} title="Privacy Policy">
           <Privacy /> 
         </AppModal>
-        
         <AppModal isOpen={activeModal === 'terms'} onClose={() => setActiveModal('none')} title="Terms and Conditions">
           <Terms />
         </AppModal>
