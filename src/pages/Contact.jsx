@@ -114,7 +114,7 @@ function Contact() {
                   </div>
                   <div>
                     <h4 className="fw-bold h6 m-0 text-muted">Email Us</h4>
-                    <a href="mailto:butoameerali@gmail.com" className="text-dark fw-bold text-decoration-none">butoameerali@gmail.com</a>
+                    <a href="mailto:feltonpeary3847@gmail.com" className="text-dark fw-bold text-decoration-none">feltonpeary3847@gmail.com</a>
                   </div>
                 </li>
                 <li className="d-flex align-items-center gap-3">

@@ -138,7 +138,7 @@ function App() {
                   {/* LOCATION UPDATE: Fixed to Ontario, Canada Mobile Area */}
                   <li className="d-flex gap-3"><i className="fa-solid fa-location-dot mt-1 text-secondary"></i> Ontario, Canada (Mobile Service)</li>
                   <li className="d-flex gap-3"><i className="fa-solid fa-phone mt-1 text-secondary"></i> <a href="tel:16727123185" className="text-secondary text-decoration-none">+1 (672) 712-3185</a></li>
-                  <li className="d-flex gap-3"><i className="fa-solid fa-envelope mt-1 text-secondary"></i> <a href="mailto:butoameerali@gmail.com" className="text-secondary text-decoration-none">butoameerali@gmail.com</a></li>
+                  <li className="d-flex gap-3"><i className="fa-solid fa-envelope mt-1 text-secondary"></i> <a href="mailto:feltonpeary3847@gmail.com" className="text-secondary text-decoration-none">feltonpeary3847@gmail.com</a></li>
                   <li className="d-flex gap-3"><i className="fa-solid fa-clock mt-1 text-secondary"></i> Mon - Sat: 9:00 AM - 6:00 PM</li>
                 </ul>
               </div>
